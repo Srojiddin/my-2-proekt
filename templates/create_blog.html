@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create blog</title>
+</head>
+<body>
+
+    
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <Label for="title">Название:</Label>
+        <input type="text" name="title" id="" required>
+
+        <Label for="description">Описание:</Label>
+        <textarea name="description" id="" cols="30"rows="10" required></textarea>
+        
+        <Label for="image">Фото:</Label>
+        <input type="file" name="image"id="" required>
+        
+        <button type="submit">Создать пост</button>
+    </form>
+
+
+</body>
+</html>
