@@ -3,25 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> update blog</title>
+    <title>Homepage</title>
+</head>
+<body>
+    
+    <ul>
+        {% for blog in blogs %}
+        <li>
+            <a href="{% url 'detail_blog' blog.id %}">{{ blog.title }}</a>
+            <h5>{{ blog.user.username }}</h5>
+            <p>{{ blog.description }}</p>
+            <img src="{{ blog.image.url }}" alt="">
+        </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Blog</title>
 </head>
 <body>
 
     
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <Label for="title">Название:</Label>
+        <label for="title">Название:</label>
         <input type="text" name="title" id="" required value="{{ blog.title }}">
 
-        <Label for="description">Описание:</Label>
-        <textarea name="description" id="" cols="30"rows="10" required>{{ blog.description }}1</textare>
-        
-        <Label for="image">Фото:</Label>
-        <input type="file" name="image"id="" required value="{{ blog.image.url }}">
-        
-        <button type="submit">obnovit post</button>
-    </form>
+        <label for="description">Описание:</label>
+        <textarea name="description" id="" cols="30" rows="10" required>{{ blog.description }}</textarea>
 
+        <label for="image">Фото:</label>
+        <input type="file" name="image" id="" required value="{{ blog.image.url }}">
+
+        <button type="submit">Обновить пост</button>
+    </form>
 
 </body>
 </html>
